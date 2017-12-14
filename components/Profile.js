@@ -30,6 +30,7 @@ export default class Profile extends Component {
           user: jwt_decode(token)
         })
       }
+      console.log(this.state.user)
     }
     catch(e) {
       console.log(e)
