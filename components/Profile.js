@@ -165,7 +165,7 @@ const styles = StyleSheet.create({
   profilePic: {
     height: 70,
     width: 70,
-    borderRadius: '35%'
+    borderRadius: 35
   },
   logoutButton: {
     backgroundColor: '#E5B376',

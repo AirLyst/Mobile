@@ -86,7 +86,7 @@ const styles = {
   listingImage: {
     width: 50,
     height: 50,
-    borderRadius: '25%',
+    borderRadius: 25,
   },
   listingItem: {
     height: 100,
