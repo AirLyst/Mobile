@@ -88,6 +88,15 @@ export default class CreateListing extends Component {
       showCategoryPicker: false
     })
   }
+
+  onAddImages = () => {
+    ImagePicker.openPicker()
+    // ImagePicker.openPicker({
+    //   multiple: true
+    // }).then(images => {
+    //   console.log(images);
+    // });
+  }
   render() {
     return (
       <View styles={styles.container}>
@@ -113,7 +122,7 @@ export default class CreateListing extends Component {
           </View>
 
           <View style={styles.inputContainer}>
-            <Text style={styles.inputLabel}>What's the size?</Text>
+            <Text style={styles.inputLabel}>{CreateListingStrings.listingSize}</Text>
             <View style={styles.pickerDisplay} onPress={this.toggleSizePicker}>
               <Text onPress={this.toggleSizePicker} style={styles.pickerDisplayText}>
               {this.state.sizeLabel}
@@ -123,7 +132,7 @@ export default class CreateListing extends Component {
           </View>
 
           <View style={styles.inputContainer}>
-            <Text style={styles.inputLabel}>What's the condition like?</Text>
+            <Text style={styles.inputLabel}>{CreateListingStrings.listingCondition}</Text>
             <View style={styles.conditionButtonContainer}>
               <Text 
                 style={this.state.condition === 'new' ? styles.conditionButtonActive : styles.conditionButton}
@@ -139,7 +148,7 @@ export default class CreateListing extends Component {
           </View>
 
           <View style={styles.inputContainer}>
-            <Text style={styles.inputLabel}>What's the brand of your item?</Text>
+            <Text style={styles.inputLabel}>{CreateListingStrings.listingBrand}</Text>
             <View style={styles.textInputContainer}>
               <TextInput 
                 style={styles.textInput}
@@ -150,7 +159,7 @@ export default class CreateListing extends Component {
           </View>
 
           <View style={styles.inputContainer}>
-            <Text style={styles.inputLabel}>How much are you looking to sell for?</Text>
+            <Text style={styles.inputLabel}>{CreateListingStrings.listingPrice}</Text>
             <View style={styles.textInputContainer}>
               <TextInput 
                 style={styles.textInput}
@@ -162,7 +171,7 @@ export default class CreateListing extends Component {
           </View>
 
           <View style={styles.inputContainer}>
-            <Text style={styles.inputLabel}>Spark interest in your post with a title!</Text>
+            <Text style={styles.inputLabel}>{CreateListingStrings.listingTitle}</Text>
             <View style={styles.textInputContainer}>
               <TextInput 
                 style={styles.textInput}
@@ -174,7 +183,7 @@ export default class CreateListing extends Component {
           </View>
 
           <View style={styles.inputContainer}>
-            <Text style={styles.inputLabel}>Add some more details about your item</Text>
+            <Text style={styles.inputLabel}>{CreateListingStrings.listingDescription}</Text>
             <View style={styles.textInputContainer}>
               <TextInput 
                 style={styles.textInput}
@@ -185,16 +194,8 @@ export default class CreateListing extends Component {
             </View>
           </View>
 
-          <View style={styles.inputContainer}>
-            <Text style={styles.inputLabel}>Add some more details about your item</Text>
-            <View style={styles.textInputContainer}>
-              <TextInput 
-                style={styles.textInput}
-                onChangeText={(description) => this.setState({ description })}
-                value={this.state.description}
-                multiline
-                />
-            </View>
+          <View style={styles.imagePickerContainer}>
+            <Text onPress={this.onAddImages} style={{backgroundColor: 'red', width: 200}}>Add Images</Text>
           </View>
 
           <View style={{height: 500}}/>
@@ -334,8 +335,6 @@ const styles = StyleSheet.create({
   },
   conditionButtonContainer: {
     width: '100%',
-    justifyContent: 'space-between',
-    flexDirection: 'row',
   },
   conditionButton: {
     marginTop: 15,
@@ -343,7 +342,7 @@ const styles = StyleSheet.create({
     borderColor: '#E5B376',
     borderRadius: 5,
     color: '#E5B376',
-    width: '48%',
+    width: '100%',
     textAlign: 'center',
     justifyContent: 'center',
     alignItems: 'center',
@@ -358,7 +357,7 @@ const styles = StyleSheet.create({
     color: 'white',
     fontWeight: '700',
     backgroundColor: '#E5B376',
-    width: '48%',
+    width: '100%',
     textAlign: 'center',
     justifyContent: 'center',
     alignItems: 'center',
